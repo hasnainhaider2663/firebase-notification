@@ -9,20 +9,24 @@ import {AngularFireMessagingModule} from '@angular/fire/messaging';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AsyncPipe} from '@angular/common';
-import {NotifcationService} from './shared/notifcation.service';
+import {NotificationService} from './shared/notification.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule, AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase), HttpClientModule
   ],
-  providers: [NotifcationService, AsyncPipe],
+  providers: [NotificationService, AsyncPipe],
 
   bootstrap: [AppComponent]
 })
